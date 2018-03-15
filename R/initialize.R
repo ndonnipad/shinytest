@@ -98,7 +98,7 @@ sd_startShiny <- function(self, private, path, seed) {
     )
   }
 
-  port <- random_open_port()
+  port <- 1414
   if (is_rmd(path)) {
     # Shiny document
     rcmd <- paste0(
