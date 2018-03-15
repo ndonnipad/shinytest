@@ -8,7 +8,7 @@
 #' @param seed A random seed to set before running the app. This seed will also
 #'   be used in the test script.
 #' @export
-recordTest <- function(app = ".", save_dir = NULL, load_mode = FALSE, seed = NULL, loadTimeout = 1000000000) {
+recordTest <- function(app = ".", save_dir = NULL, load_mode = FALSE, seed = NULL) {
 
   # Get the URL for the app. Depending on what type of object `app` is, it may
   # require starting an app.
@@ -26,7 +26,7 @@ recordTest <- function(app = ".", save_dir = NULL, load_mode = FALSE, seed = NUL
       }
 
       # It's a path to an app; start the app
-      app <- ShinyDriver$new(app, seed = seed, loadTimeout = loadTimeout)
+      app <- ShinyDriver$new(app, seed = seed)
       on.exit({
         rm(app)
         gc()
